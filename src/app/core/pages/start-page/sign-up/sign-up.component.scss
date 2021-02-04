@@ -1,0 +1,117 @@
+@import "./src/assets/colors/variables-colors";
+
+.form {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__loader-file {
+    display: flex;
+    padding: 10px 0;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    @media all and(max-width: 1139px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    button {
+      @media all and(max-width: 1139px) {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__avatar {
+    label {
+      cursor: pointer;
+      background-image: url(/assets/svg/plus-solid.svg);
+      background-size: cover;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: .3s all ease;
+      &:hover {
+        transform:translate(-50%, -50%) rotate(360deg);
+        transition: .3s all ease;
+      }
+    }
+  }
+
+  &__avatar {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    border-radius: 50px;
+  }
+
+  &__reset-avatar {
+    width: 32px;
+    height: 32px;
+    right: 0;
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    transform: rotate(45deg);
+    transition: .3s all ease-in-out;
+
+    &:hover {
+      transform: rotate(-135deg);
+      transition: .3s all ease-in-out;
+    }
+  }
+
+  &__avatar-circle {
+    width: 64px;
+    height: 64px;
+    border: $primaryThemeColor 2px solid;
+    border-radius: 50px;
+    margin: 0 auto;
+
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    button {
+      width: 120px;
+    }
+  }
+}
+
+#form__loader {
+  width: 100%;
+  max-width: 180px;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  @media all and(max-width: 1139px) {
+    max-width: 100%;
+  }
+}
+
+
+.upload {
+  &__message {
+    color: $secondColor;
+    text-align: center;
+    padding: 20px 0;
+  }
+}
+
+::ng-deep .mat-form-field {
+  //padding: 10px 0;
+}

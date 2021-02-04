@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://guest-book.naveksoft.com",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

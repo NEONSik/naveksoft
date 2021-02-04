@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .header {
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="answers__container">
+
+  <div class="answers__payload">
+    <div class="answers__user">
+      <div class="answers__avatar"
+           [ngStyle]="{'background-image':'url('+answer?.user?.avatar.split('storage/')[1]?answer?.user?.avatar:'./assets/svg/user.svg'+')'}"></div>
+      <div class="answers__user-info">
+        <div class="answers__user-email mat-h1">Email: {{answer?.user.email}}</div>
+        <div class="answers__user-name mat-h2">Name: {{answer?.user.name}}</div>
+      </div>
+    </div>
+    <div class="answers__message-container">
+      <div class="answers__message-title mat-h2">Last Update: {{answer?.updated_at|date:"fullDate"}}</div>
+      <div class="answers__message mat-h4">Message: {{answer?.message}}</div>
+    </div>
+    <!--    <img class="answers__chevron"-->
+    <!--         (click)="toggleOfPost()"-->
+    <!--         [ngClass]="{'answers__chevron_opened':isOpenedPost}"-->
+    <!--         src="./assets/svg/chevron.svg" alt="open">-->
+  </div>
+  <!--  <div class="answers__answers" [@children]="isOpenedPost? 'visibleAnimated' : 'hiddenAnimated'">-->
+  <!--    <app-answer></app-answer>-->
+  <!--  </div>-->
+
+
+</div>
+

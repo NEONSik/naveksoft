@@ -1,0 +1,72 @@
+<form class="form__container" [formGroup]="form">
+
+  <div class="form__loader-file">
+    <div class="form__avatar-circle">
+      <div class="form__avatar">
+        <img class="form__avatar"
+             *ngIf="urlImage"
+             [src]="urlImage">
+
+        <ng-container *ngIf="!urlImage">
+          <label for="form__loader"></label>
+          <input type="file"
+                 id="form__loader"
+                 (change)="selectFile($event)"
+                 accept=".jpeg,.bmp,.png"/>
+        </ng-container>
+
+      </div>
+    </div>
+    <img class="form__reset-avatar"
+         *ngIf="urlImage"
+         (click)="deleteAvatar()"
+         src="/assets/svg/plus-solid.svg">
+  </div>
+
+  <mat-form-field appearance="outline" class="example-full-width">
+    <mat-label>Enter your password</mat-label>
+    <input type="email" matInput formControlName="email" placeholder="mail@example.com">
+    <mat-error *ngIf="this.form.controls.email.hasError('email')
+    && !this.form.controls.email.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="this.form.controls.email.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="example-full-width">
+    <mat-label>Enter your name</mat-label>
+    <input matInput formControlName="name" placeholder="Enter name">
+    <mat-error *ngIf="this.form.controls.email.hasError('email')
+    && !this.form.controls.email.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="this.form.controls.email.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Enter your password</mat-label>
+    <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword">
+      <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Confirm your password</mat-label>
+    <input matInput formControlName="password_confirmation" [type]="hidePasswordConfirm ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hidePasswordConfirm = !hidePasswordConfirm" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePasswordConfirm">
+      <mat-icon>{{hidePasswordConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="form__buttons">
+    <button mat-stroked-button type="submit" (click)="register()" color="accent">Sign-up</button>
+    <button mat-stroked-button type="reset" color="warn">Clear</button>
+  </div>
+</form>
+

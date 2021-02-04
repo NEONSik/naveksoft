@@ -1,0 +1,126 @@
+@import "./src/assets/colors/variables-colors";
+
+:host {
+  .post {
+    &__container {
+      display: flex;
+      color: $secondColor;
+      background-color: $primaryThemeColor;
+      flex-direction: column;
+      border-radius: 25px;
+      //height: 100%;
+      margin: 20px;
+
+
+    }
+
+    &__payload {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 25px;
+      width: 100%;
+      @media all and(max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    &__chevron {
+      transition: .3s ease-in-out;
+      height: 32px;
+      width: 32px;
+      display: block;
+      margin: 20px 10px 20px auto;
+      cursor: pointer;
+
+      &_opened {
+        transition: .3s ease-in-out;
+        transform: rotate(180deg);
+      }
+    }
+
+    &__user {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    &__user-email, &__user-name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @media all and (max-width: 1139px) {
+        max-width: 150px;
+        white-space: pre-wrap;
+      }
+    }
+
+    &__message-title, &__message {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @media all and (max-width: 1139px) {
+        //max-width: 200px;
+        white-space: pre-wrap;
+      }
+    }
+
+    &__user-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__avatar {
+      border-radius: 50px;
+      width: 64px;
+      height: 64px;
+      overflow: hidden;
+      background-size: cover;
+      margin: 0 10px;
+      border: 2px solid $accentThemeColor;
+    }
+
+    &__payload {
+
+    }
+
+    &__message-title, &__message {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 500px;
+      white-space: pre-wrap;
+      @media all and(max-width: 768px) {
+        max-width: 200px;
+
+      }
+    }
+
+    &__message-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: flex-end;
+      align-items: center;
+      @media all and(max-width: 768px) {
+        align-items: flex-start;
+        margin-left: 20px;
+      }
+    }
+
+    &__tools {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &__answers {
+      overflow: hidden;
+      text-align: center;
+
+      &_opened {
+        overflow: unset;
+      }
+    }
+  }
+}

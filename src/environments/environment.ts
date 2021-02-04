@@ -3,7 +3,24 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiEndpoint: 'https://guest-book.naveksoft.com/api/v1/',
+  broadcaster: 'pusher',
+  key: 'key',
+  wsHost: 'guest-book.naveksoft.com',
+  wsPort: '443',
+  wssPort: '443',
+  wsPath: '/ws',
+  encrypted: true,
+  authEndpoint: 'https://guest-book.naveksoft.com/broadcasting/auth',
+  auth: {
+    headers: {
+      // Authorization: `Bearer ${Ваш токен}`,
+      Accept: `application/json`
+    },
+  },
+  enabledTransports: ['ws', 'wss'], // https://github.com/beyondcode/laravel-websockets/issues/86
+  disableStats: true,
 };
 
 /*

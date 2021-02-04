@@ -1,0 +1,43 @@
+<div class="post__container" [ngSwitch]="answers?.data.length">
+  <div class="post__payload">
+    <div class="post__user">
+      <img class="post__avatar"
+           [src]="postData?.user?.avatar.split('storage/')[1]?postData?.user?.avatar:'./assets/svg/user.svg'"/>
+      <div class="post__user-info">
+        <div class="post__user-email mat-h1">Email: {{postData?.user.email}}</div>
+        <div class="post__user-name mat-h2">Name: {{postData?.user.name}}</div>
+      </div>
+    </div>
+    <div class="post__message-container">
+      <div class="post__message-title mat-h2"> Title: {{postData?.title}}</div>
+      <div class="post__message mat-h4">Message: {{postData?.message}}</div>
+    </div>
+    <div class="post__tools">
+      <button mat-raised-button color="warn"
+              *ngIf="canDelete"
+              (click)="deletePost()">Delete post
+      </button>
+      <img class="post__chevron"
+
+           (click)="toggleOfPost()"
+           [ngClass]="{'post__chevron_opened':isOpenedPost}"
+           src="./assets/svg/chevron.svg" alt="open">
+    </div>
+
+  </div>
+  <ng-container *ngSwitchCase="true">
+    <div class="post__answers"
+         *ngFor="let answer of answers?.data"
+         [ngClass]="{'post__answers_opened':isOpenedPost}"
+         [@children]="isOpenedPost? 'visibleAnimated' : 'hiddenAnimated'">
+      <app-answer [answer]="answer"></app-answer>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="false">
+    <div class="mat-h1 post__answers"
+         [ngClass]="{'post__answers_opened':isOpenedPost}"
+         [@children]="isOpenedPost? 'visibleAnimated' : 'hiddenAnimated'">No answers.
+    </div>
+  </ng-container>
+</div>

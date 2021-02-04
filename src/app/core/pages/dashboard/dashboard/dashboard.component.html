@@ -1,0 +1,11 @@
+<div class="mat-elevation-z8 " >
+    <app-post *ngFor="let post of dataSource?.data.slice(0,pageSize)"
+              (onDelete)="getPosts()"
+              [postData]="post"></app-post>
+    <mat-paginator [pageSizeOptions]="[1,2,3,4,5, 10,allPosts]"
+                   (page)="changePageSize($event)"
+                   [showFirstLastButtons]="false"
+                   [length]="dataSource?.meta.total"
+                   [pageIndex]="dataSource?.meta.current_page"
+                   showFirstLastButtons></mat-paginator>
+</div>
